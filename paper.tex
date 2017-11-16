@@ -2,6 +2,14 @@
 \usepackage{blindtext}
 \usepackage{fancyhdr}
 
+\usepackage[
+    backend=biber,
+    style=ieee,
+    url=true
+]{biblatex}
+
+\addbibresource{references.bib}
+
 \pagestyle{fancy}
 \fancypagestyle{normalPage}{
     \fancyhf{}
@@ -39,6 +47,9 @@
 \blindtext
 \blindtext
 
-Hello this is a test
+Hello this is a test \textcite{perisic17}
 \pagestyle{normalPage}
+
+
+\printbibliography
 \end{document}
