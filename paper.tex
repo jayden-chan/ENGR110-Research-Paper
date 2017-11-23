@@ -1,6 +1,9 @@
 \documentclass[letterpaper]{article}
 \usepackage{blindtext}
 \usepackage{fancyhdr}
+\usepackage{indentfirst}
+
+\setlength{\parindent}{5ex}
 
 \usepackage[
     backend=biber,
@@ -28,7 +31,7 @@
     \centering
     {\scshape\huge UNIVERSITY OF VICTORIA \par}
     \vspace{1cm}
-    {\scshape\LARGE Faculty of Engineering \par}
+    {\scshape\LARGE Faculty of Engineering \par\Large ENGR 110 A04\par}
     \vspace{1cm}
     {\scshape\Large Research Project \par}
     \vspace{1.5cm}
@@ -36,20 +39,15 @@
     \vspace{2cm}
     {\Large\itshape Jayden Chan \par}
     \vfill
-    {\large \today\par}
+    {\large November 30, 2017\par}
 \end{titlepage}
+
 \pagestyle{pageOne}
-
 \section{Introduction}
-\blindtext
-\section{Body Paragraph One}
-\blindtext
-\blindtext
-\blindtext
+The recent surge in computational power and dataset availability has led to a significant increase in the use of artificial intelligence and machine learning. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two technologies can aid significantly in the development of sustainable homes and businesses. 
 
-Hello this is a test \textcite{perisic17}
-\pagestyle{normalPage}
-
+\section{Machine Learning}
+\blindtext
 
 \printbibliography
 \end{document}
