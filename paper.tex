@@ -3,23 +3,19 @@
 \usepackage{fancyhdr}
 \usepackage{indentfirst}
 
-\setlength{\parindent}{5ex}
+\setlength{\parindent}{5.5ex}
 
 \usepackage[
     backend=biber,
     style=ieee,
-    url=true
+    url=true,
+    citestyle=numeric-comp
 ]{biblatex}
 
 \addbibresource{references.bib}
 
 \pagestyle{fancy}
-\fancypagestyle{normalPage}{
-    \fancyhf{}
-    \renewcommand{\headrulewidth}{0pt}
-    \fancyhead[R]{\thepage}
-}
-\fancypagestyle{pageOne}{
+\fancypagestyle{customPage}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[R]{\thepage}
@@ -33,7 +29,7 @@
     \vspace{1cm}
     {\scshape\LARGE Faculty of Engineering \par\Large ENGR 110 A04\par}
     \vspace{1cm}
-    {\scshape\Large Research Project \par}
+    {\scshape\Large Research Paper \par}
     \vspace{1.5cm}
     {\huge\bfseries \emph{Machine Learning, The Internet of Things, and Sustainable Design} \par}
     \vspace{2cm}
@@ -42,12 +38,15 @@
     {\large November 30, 2017\par}
 \end{titlepage}
 
-\pagestyle{pageOne}
-\section{Introduction}
-The recent surge in computational power and dataset availability has led to a significant increase in the use of artificial intelligence and machine learning (ML) \cite{chan17}. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two technologies can aid significantly in the development of sustainable homes and businesses. The integration of these technologies, however, is not without its challenges, the biggest of which involve ethical concerns or technical barriers \cite{perisic16, mccalman17, pang15}. Despite these challenges, the benefits of ML and the IoT strongly outweigh their shortcomings, making them a viable future technology for the sustainable design of homes and businesses.  
+\pagestyle{customPage}
 
-\section{Machine Learning}
-\blindtext
+\section{Introduction}
+The recent surge in computational power and dataset availability has led to a significant increase in the use of artificial intelligence and machine learning (ML) \cite{chan17}. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two technologies can aid significantly in the development of sustainable homes and businesses. Integrating these technologies, however, is not without its challenges, the biggest of which involve ethical concerns or technical barriers \cite{perisic16, mccalman17, vlacheas13}. Despite these challenges, the strengths of ML and the IoT strongly outweigh their shortcomings, making them a viable future technology for the sustainable design of homes and businesses.
+
+\section{Understanding the Technologies}
+Before discussing the viability or effectiveness of machine learning and the IoT, it is important to understand how they work.
+\subsection{Machine Learning}
+While the concept of artificial intelligence predates the common era \cite{mccorduck04}, the term ``machine learning'' was not coined until 1959 by Arthur Samuel \cite{samuel59}. The basic principle behind machine learning is to allow computers to complete tasks without being explicitly told how to. This technique enables computers to solve complex problems that are either too complicated for traditional algorithms to solve or lack a traditional algorithm altogether.
 
 \printbibliography
 \end{document}
