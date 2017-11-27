@@ -2,6 +2,8 @@
 % - Remove all instances of \blindtext
 % - Remove all instances of [placeholder]
 % - Check that all quotes and mentions of authors are cited
+% - Add types of ML to ML info section
+% - Add smart system outline to first par of section 3
 % - Don't throw uncontrollably
 
 \documentclass[letterpaper]{article}
@@ -46,15 +48,39 @@
 
 \pagestyle{customPage}
 
-\section{Introduction}
-The recent surge in computational power and data set availability has led to a significant increase in the use of artificial intelligence and machine learning (ML) \cite{chan17}. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two systems can aid significantly in the development of sustainable homes and businesses. Network-enabled cyber-physical devices capable of gathering data from their surroundings can provide optimization algorithms with the data they need to improve automation, energy use efficiency, and [placeholder]. However, integrating these technologies is not without its challenges; the most prominent which involve ethical concerns or technical barriers \cite{perisic16, mccalman17, vlacheas13}. Despite these challenges, the strengths of ML and the IoT strongly outweigh their shortcomings, making them a viable future technology for designing sustainable homes and businesses.
+\begin{abstract}
+    The abstract is written last; this is placeholder text for formatting purposes. \blindtext
+\end{abstract}
 
-\section{The Technologies}
-Before discussing the viability or effectiveness of machine learning and the IoT, it is important to understand how they work.
-\subsection{Machine Learning}
-While the concept of artificial intelligence predates the common era \cite{mccorduck04}, the term ``machine learning'' was not coined until 1959 by Arthur Samuel \cite{samuel59}. The basic principle behind machine learning is to allow computers to complete tasks without being explicitly told how to. This technique enables machines to solve problems that are either too complicated for traditional algorithms to handle or lack a working traditional algorithm altogether.
-\subsection{The Internet of Things}
-The Internet of Things is a relatively recent conceptual technology which originated in the mid 1980's and 1990's with network-enabled appliances and smart devices \cite{weiser91}. Since then, many advancements have been made in the fields of embedded systems, microelectronics, and real-time analytics. While the IoT is still not a fully fledged technology ready for implementation in all scenarios, these advancements have increased its viability tremendously since the idea's inception. Similar to machine learning, the IoT comes in many different forms and interpretations. The implementations most useful for sustainable design are wireless sensor networks and automation networks \cite{atzori10}. 
+\section{Introduction} \label{intro}
+The recent surge in computational power and data set availability has led to a significant increase in the use of artificial intelligence and machine learning (ML) algorithms \cite{chan17}. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected smart devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two systems can aid significantly in the development of sustainable homes and businesses. Network-enabled cyber-physical devices capable of gathering information from their surroundings can provide optimization algorithms with the data they need to improve automation, energy use efficiency, and [placeholder]. However, integrating these technologies is not without its challenges; the most prominent which involve ethical concerns or technical barriers \cite{perisic16, mccalman17, vlacheas13}. Despite these challenges, the strengths of ML and the IoT strongly outweigh their shortcomings, making them a viable future technology for designing sustainable homes and businesses.
+
+\section{The Technologies} \label{info}
+Before discussing the viability of machine learning and the IoT, it is important to understand how they work. The combination of machine learning and the IoT as a single technology will be referred to as a ``smart system''.
+
+\subsection{Machine Learning} \label{MLinfo}
+While the concept of artificial intelligence predates the common era \cite{mccorduck04}, the term ``machine learning'' was not coined until 1959 by Arthur Samuel \cite{samuel59}. The basic principle behind machine learning is to allow computers to complete tasks without being explicitly told how to. This technique enables machines to solve problems that are either too complicated for traditional algorithms to handle or lack a working traditional algorithm altogether. There are a variety of modern machine learning implementations in use today, and they each [placeholder]
+
+\subsection{The Internet of Things} \label{IoTinfo}
+The Internet of Things is a relatively modern conceptual technology which originated in the mid 1980's and 1990's with network-enabled appliances and smart devices \cite{weiser91}. Since then, many advancements have been made in the fields of embedded systems, microelectronics, and real-time analytics. While the IoT is still not a fully fledged technology ready for implementation in all scenarios, these advancements have increased its viability tremendously since the idea's inception. Similar to machine learning, the IoT comes in many different forms and interpretations. The implementations most useful for sustainable design are wireless sensor networks and automation networks \cite{atzori10}. These, in tandem with ML optimization algorithms, can serve to aid greatly in the development of sustainable designs.
+
+\section{ML and the IoT for Sustainable Designs} \label{main}
+A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner:
+
+\begin{center}
+\begin{enumerate}
+\item
+    The sensor and actuator networks are installed in the building. The greater the coverage of the network, the better the results.
+\item
+    Over time, information is collected by the sensor network. Again: the more data, the better the results. Typical metrics to measure are active occupancy hours, energy usage rates, transportation patterns (this extends beyond the building itself but useful in many respects), and [placeholder].
+\item
+    The data is anonymously send to a cloud computing service where it has a machine learning algorithm applied to it. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage.
+\item
+    The optimization plan is sent back to the building where the actuator network applies it on a daily basis. The optimization plan can include actions such as reducing the climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
+\item
+    Steps 2-4 are repeated in a continuous cycle. The ML algorithm improves with more data, and a setup which constantly supplies it with new data allows it to adapt to lifestyle changes of home or business owners.
+\end{enumerate}
+\end{center}
 
 \clearpage
 \printbibliography
