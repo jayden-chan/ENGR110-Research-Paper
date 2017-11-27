@@ -65,7 +65,7 @@ While the concept of artificial intelligence predates the common era \cite{mccor
 The Internet of Things is a relatively modern conceptual technology which originated in the mid 1980's and 1990's with network-enabled appliances and smart devices \cite{weiser91}. Since then, many advancements have been made in the fields of embedded systems, microelectronics, and real-time analytics. While the IoT is still not a fully fledged technology ready for implementation in all scenarios, these advancements have increased its viability tremendously since the idea's inception. Similar to machine learning, the IoT comes in many different forms and interpretations. The implementations most useful for sustainable design are wireless sensor networks and automation networks \cite{atzori10}. These, in tandem with ML optimization algorithms, can serve to aid greatly in the development of sustainable designs.
 
 \section{ML and the IoT for Sustainable Designs} \label{main}
-A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner:
+A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner, based on implementations by \textcite{pang15} and \textcite{risteska17}:
 
 \begin{center}
 \begin{enumerate}
@@ -76,11 +76,21 @@ A smart system is composed of three components: a wireless sensor network, an ac
 \item
     The data is anonymously send to a cloud computing service where it has a machine learning algorithm applied to it. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage.
 \item
-    The optimization plan is sent back to the building where the actuator network applies it on a daily basis. The optimization plan can include actions such as reducing the climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
+    The optimization plan is sent back to the building where the actuator network applies it on a daily basis. An actuator network is a set of hardware controllers capable of manipulating their surroundings. The optimization plan can include actions such as reducing the climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
 \item
     Steps 2-4 are repeated in a continuous cycle. The ML algorithm improves with more data, and a setup which constantly supplies it with new data allows it to adapt to lifestyle changes of home or business owners.
 \end{enumerate}
 \end{center}
+
+The system outlined above has significant advantages when compared to traditional `smart building' implementations. First, the system benefits from the ability to adapt to changing conditions. A significant setback of traditional automated systems is that if the operating conditions change in a way that affects their performance, they must be manually re-programmed. This system eliminates this problem by constantly adapting to and improving based on the operating conditions. Another strength of this implementation inherent to its design is the interconnectedness of its components. While a traditional automation system may be able to superficially improve efficiency in select areas of a building, an interconnected system can monitor the entire building as a single ecosystem and allow \emph{all} of the components to work together and improve efficiency. 
+
+\section{Refutation} \label{refute}
+As mentioned in section \ref{intro}, machine learning and the IoT are relatively modern and untested technologies. Thus they are not without their flaws and it is expected that critics would be skeptical of their performance. \par
+
+Since the rise of the information era, privacy has been a large concern among internet users. A significant issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. 
+
+\section{Conclusion} \label{conc}
+\blindtext
 
 \clearpage
 \printbibliography
