@@ -33,18 +33,25 @@
     \fancyhead[C]{\textit{Machine Learning, The Internet of Things, and Sustainable Design}}
 }
 
+\pagestyle{fancy}
+\fancypagestyle{normalPage}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead[R]{\thepage}
+}
+
 \begin{document}
 \begin{titlepage}
     \centering
-    {\scshape\huge UNIVERSITY OF VICTORIA \par}
+    {\scshape\huge UNIVERSITY OF VICTORIA\par}
     \vspace{1cm}
-    {\scshape\LARGE Faculty of Engineering \par\Large ENGR 110 A04\par}
+    {\scshape\LARGE Faculty of Engineering\par\Large ENGR 110 A04\par}
     \vspace{1cm}
-    {\scshape\Large Research Paper \par}
+    {\scshape\Large Research Paper\par}
     \vspace{1.5cm}
-    {\huge\bfseries \emph{Machine Learning, The Internet of Things, and Sustainable Design} \par}
+    {\huge\bfseries \emph{Machine Learning, The Internet of Things, and Sustainable Design}\par}
     \vspace{2cm}
-    {\Large\itshape Jayden Chan \par}
+    {\Large\itshape Jayden Chan\par}
     \vfill
     {\large November 30, 2017\par}
 \end{titlepage}
@@ -52,7 +59,7 @@
 \pagestyle{customPage}
 
 \begin{abstract}
-    The abstract is written last; this is placeholder text for formatting purposes. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut leo venenatis, malesuada elit in, efficitur massa. In sodales egestas egestas. Nulla et orci in enim aliquam pretium. Nam auctor vestibulum ipsum rutrum ullamcorper. Sed porta in mauris consequat vehicula. Etiam bibendum a urna nec tincidunt. Curabitur justo turpis, faucibus ut malesuada a, luctus id nisi. Integer mauris nulla, lacinia nec nisl vel, posuere laoreet nulla. Nunc semper diam nec odio pretium, in volutpat ante placerat.
+    The abstract is written last; this is placeholder text for formatting purposes. \blindtext
 \end{abstract}
 
 \section{Introduction} \label{intro}
@@ -63,11 +70,14 @@ Before discussing the viability of machine learning and the IoT, it is important
 
 \subsection{Machine Learning} \label{MLinfo}
 While the concept of artificial intelligence predates the common era \cite{mccorduck04}, the term ``machine learning'' was not coined until 1959 by Arthur Samuel \cite{samuel59}. The basic principle behind machine learning is to allow computers to complete tasks without being explicitly told how to. This technique enables machines to solve problems that are either too complicated for traditional algorithms to handle or lack a working traditional algorithm altogether.\par
-There are a variety of modern machine learning implementations in use today, and they each have their strengths and weaknesses. The most useful flavor for the purposes of smart systems is an Artificial Neural Network (ANN), as it excels at pattern recognition and adaptability \cite{bishop06}. The specifics of ANNs are far beyond the scope of this paper, but they can be thought of as an algorithm which takes several inputs (data collected from IoT devices in this case), and produces one or more outputs (optimization plan in this case). The algorithm has a target (reduced energy usage in this case), and each time it produces an output it compares it to the target and attempts to improve itself in order to produce output which is more similar to the target \cite{bonaccorso17}.
+
+There are a variety of modern machine learning implementations in use today, and they each have their strengths and weaknesses. The most useful flavor for the purposes of smart systems is an Artificial Neural Network (ANN), as it excels at pattern recognition and adaptability \cite{bishop06}. The specifics of ANNs are far beyond the scope of this paper, but they can be thought of as an algorithm which takes several inputs (data collected from IoT devices in this case), and produces one or more outputs (a plan to reduce energy usage in this case). The algorithm has a target (reduced energy usage in this case), and each time it produces an output it compares it to the target and attempts to improve itself in order to produce output which is more similar to the target \cite{bonaccorso17}.
 
 \subsection{The Internet of Things} \label{IoTinfo}
 The Internet of Things is a relatively modern conceptual technology which originated in the mid 1980's and 1990's with network-enabled appliances and smart devices \cite{weiser91}. Since then, many advancements have been made in the fields of embedded systems, microelectronics, and real-time analytics. While the IoT is still not a fully fledged technology ready for implementation in all scenarios, these advancements have increased its viability tremendously since the idea's inception.\par
+
 Similar to machine learning, the IoT comes in many different forms and interpretations. The concept of the IoT is to bring the internet to devices that would not normally be connected to the internet. This can include objects like sensors, monitors, actuators, or even fridges, thermostats, lights, and other appliances \cite{wortmann15}. The implementations most useful for sustainable design are wireless sensor networks and automation networks \cite{atzori10}. These, in tandem with ML optimization algorithms, can serve to aid greatly in the development of sustainable designs.
+\pagestyle{normalPage}
 
 \section{ML and the IoT for Sustainable Designs} \label{main}
 A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner, based on implementations by \textcite{pang15} and \textcite{risteska17}:
@@ -77,9 +87,9 @@ A smart system is composed of three components: a wireless sensor network, an ac
 \item
     The sensor and actuator networks are installed in the building. The greater the coverage of the network, the better the results.
 \item
-    Over time, information is collected by the sensor network. Again: the more data, the better the results. Typical metrics to measure are active occupancy hours, energy usage rates, transportation patterns (this extends beyond the building itself but useful in many respects), and [placeholder].
+    Over time, information is collected by the sensor network. Again: the more data, the better the results. Typical metrics to measure are active occupancy hours, device usage patterns, energy usage rates, transportation patterns (this extends beyond the building itself but useful in many respects).
 \item
-    The data is anonymously send to a cloud computing service where it has a machine learning algorithm applied to it. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage.
+    The data is anonymously send to a cloud computing service where it is fed into an Artificial Neural Network designed to reduce energy usage. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage. If an optimization plan already exists, the results of it are analyzed for consistency with the target values. The algorithm will attempt to modify itself to closer emulate the target values based on this data.
 \item
     The optimization plan is sent back to the building where the actuator network applies it on a daily basis. An actuator network is a set of hardware controllers capable of manipulating their surroundings. The optimization plan can include actions such as reducing the climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
 \item
@@ -87,12 +97,14 @@ A smart system is composed of three components: a wireless sensor network, an ac
 \end{enumerate}
 \end{center}
 
-The system outlined above has significant advantages when compared to traditional `smart building' implementations. First, the system benefits from the ability to adapt to changing conditions. A major setback of traditional automated systems is that if the operating conditions change in a way that affects their performance, they must be manually re-programmed. This system eliminates this problem by constantly adapting to and improving based on the operating conditions. Another strength of this implementation inherent to its design is the interconnectedness of its components. While a traditional automation system may be able to superficially improve efficiency in select areas of a building, an interconnected system can monitor the entire building as a single ecosystem and allow \emph{all} of the components to work together and improve efficiency.
+The system outlined above has significant advantages when compared to traditional `smart building' implementations. First, the system benefits from the ability to adapt to changing conditions. A major setback of traditional automated systems is that if the operating conditions change in a way that affects their performance, they must be manually re-programmed. This system eliminates this problem by constantly adapting to and improving based on the operating conditions. Another strength of this implementation inherent to its design is the interconnectedness of its components. While a traditional automation system may be able to superficially improve efficiency in select areas of a building, an interconnected system can monitor the entire building as a single ecosystem and allow \emph{all} of the components to work together and improve efficiency.\par
+
+Building further on the concept of interconnectedness, the nature of this framework also makes it substantially easier to manage existing smart technologies if they are incorporated in the system. For example, thermostats, fridges, lights, and other appliances can all be managed from a single point such as a mobile app or computer program. This makes it exceedingly convenient for users to manage their energy usage and incentivizes a more sustainable lifestyle.
 
 \section{Refutation} \label{refute}
-As mentioned in section \ref{intro}, machine learning and the IoT are relatively modern and untested technologies. As such, they are not without their flaws and it is expected that critics would be skeptical of their performance. \par
+As mentioned in section \ref{intro}, machine learning and the IoT are relatively modern and untested technologies. As such, they are not without their flaws and it is expected that critics would be skeptical of their performance.\par
 
-Since the rise of the information era, privacy has been a large concern among internet users. A significant issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. There are two foreseeable solutions to this problem: the first is to make the control software open-source. Open-source software is software who's design is publicly available, meaning anyone can view and contribute to it \cite{opensource}. This way, customers and industry professionals can examine the code to ensure that the collected data is not being used in a malicious manner. The second solution is to not have the data sent to a cloud computing service in the first place. This way, the data is contained within the building's infrastructure and all of the algorithms are processed in-house. No data is sent off site, thereby eliminating any privacy concerns. \par
+Since the rise of the information era, privacy has been a large concern among internet users. A significant issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. There are two foreseeable solutions to this problem: the first is to make the control software open-source. Open-source software is software who's design is publicly available, meaning anyone can view and contribute to it \cite{opensource}. This way, customers and industry professionals can examine the code to ensure that the collected data is not being used in a malicious manner. The second solution is to not have the data sent to a cloud computing service in the first place. This way, the data is contained within the building's infrastructure and all of the algorithms are processed in-house. No data is sent off site, thereby eliminating any privacy concerns.\par
 
 Although the foundational technologies for smart systems have advanced significantly in recent years, there are still some areas that need work. The most difficult problem the IoT faces is the task of getting all of the devices in a local network to communicate with each other properly. Each device may be made by a different manufacturer and there is no universal software that seamlessly connects them all. A proposed solution to this problem by Vlacheas et al. \cite{vlacheas13} in their 2013 paper is a cognitive management framework which aims to assist in managing a network of devices. The framework works by representing real world objects with virtual objects in software. Virtual objects are assembled into composite virtual objects (CVOs) and the CVOs are compiled into a working IoT network. This framework allows for a higher level of software abstraction, making it much easier for software developers to merge a network of devices into a cohesive, highly functional unit.
 
