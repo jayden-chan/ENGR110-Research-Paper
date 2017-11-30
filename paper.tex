@@ -9,6 +9,18 @@
 \usepackage{blindtext}
 \usepackage{fancyhdr}
 \usepackage{indentfirst}
+\usepackage{titlesec}
+\usepackage[T1]{fontenc}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+\titleformat{\section}{\scshape\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\scshape\large\bfseries}{\thesubsection}{1em}{}
 
 \setlength{\parindent}{5ex}
 
@@ -26,8 +38,15 @@
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[R]{\thepage}
-    \fancyhead[C]{\textit{Machine Learning, The Internet of Things, and Sustainable Design}}
+    \fancyhead[C]{\scshape\small{Machine Learning, The Internet of Things, and Sustainable Design}}
 }
+\pagestyle{fancy}
+\fancypagestyle{references}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyhead[R]{\thepage}
+}
+
 
 \begin{document}
 \begin{titlepage}
@@ -47,9 +66,16 @@
 
 \pagestyle{customPage}
 
-\begin{abstract}
-    The abstract is written last; this is placeholder text for formatting purposes. \blindtext
-\end{abstract}
+\begin{center}
+\begin{minipage}{9.5cm}\setlength{\parindent}{5ex}
+    \begin{center}
+        {\scshape{Abstract}}
+    \end{center}
+    \vspace{-0.25cm}
+    \hspace{4ex}
+    Hello this is a test to see if the abstract thing is working because to be honest I'm not really sure if it's working or not.
+\end{minipage}
+\end{center}
 
 \section{Introduction} \label{intro}
 The recent surge in computational power and data set availability has led to a significant increase in the use of artificial intelligence and machine learning (ML) algorithms \cite{chan17}. In addition to this, advances in microelectronics and network infrastructure have enabled hardware manufacturers to create internet-connected smart devices for use in homes and businesses. This technology is commonly referred to as the Internet of Things (IoT). The combination of these two systems can aid significantly in the development of sustainable homes and businesses. Network-enabled cyber-physical devices capable of gathering information from their surroundings can provide optimization algorithms with the data they need to improve automation, energy use efficiency, and sustainability. However, integrating these technologies is not without its challenges; the most prominent of which involve ethical concerns or technical barriers \cite{perisic16, mccalman17, vlacheas13}. Despite these challenges, the strengths of ML and the IoT strongly outweigh their shortcomings, making them a viable future technology for designing sustainable homes and businesses.
@@ -75,7 +101,7 @@ A smart system is composed of three components: a wireless sensor network, an ac
 \item
     The sensor and actuator networks are installed in the building. The greater the coverage of the network, the better the results.
 \item
-    Over time, information is collected by the sensor network. Again: the more data, the better the results. Typical metrics to measure are active occupancy hours, device usage patterns, energy usage rates, and transportation patterns (this extends beyond the building itself but useful in many respects).
+    Over time, information is collected by the sensor network. Again, the more data, the better the results. Typical metrics to measure are active occupancy hours, device usage patterns, energy usage rates, and transportation patterns (this extends beyond the building itself but useful in many respects).
 \item
     The data is anonymously send to a cloud computing service where it is fed into an Artificial Neural Network designed to reduce energy usage. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage. If an optimization plan already exists, the results of it are analyzed for consistency with the target values. The algorithm will attempt to modify itself to closer emulate the target values based on this data.
 \item
@@ -85,20 +111,24 @@ A smart system is composed of three components: a wireless sensor network, an ac
 \end{enumerate}
 \end{center}
 
-The system outlined above has significant advantages when compared to traditional `smart building' implementations. First, the system benefits from the ability to adapt to changing conditions. A major setback of traditional automated systems is that if the operating conditions change in a way that affects their performance, they must be manually re-programmed. This system eliminates this problem by constantly adapting to and improving based on the operating conditions. Another strength of this implementation inherent to its design is the interconnectedness of its components. While a traditional automation system may be able to superficially improve efficiency in select areas of a building, an interconnected system can monitor the entire building as a single ecosystem and allow \emph{all} of the components to work together and improve efficiency.\par
+The system outlined above has significant advantages when compared to traditional `smart building' implementations. First, the system benefits from the ability to adapt to changing conditions. A major setback of traditional automated systems is that if the operating conditions change in a way that affects their performance, they must be manually re-programmed. This system eliminates this problem by constantly adapting and improving based on the operating conditions. Another strength of this implementation inherent to its design is the interconnectedness of its components. While a traditional automation system may be able to superficially improve efficiency in select areas of a building, an interconnected system can monitor the entire building as a single ecosystem and allow \emph{all} of the components to work together and improve efficiency.\par
 
-Building further on the concept of interconnectedness, the nature of this framework also makes it substantially easier to manage existing smart technologies if they are incorporated in the system. For example, thermostats, fridges, lights, and other appliances can all be managed from a single point such as a mobile app or computer program. This makes it exceedingly convenient for users to manage their energy usage and incentivizes a more sustainable lifestyle.
+Building further on the concept of interconnectedness, the nature of this framework also makes it substantially easier to manage existing smart technologies if they are incorporated in the system. For example, thermostats, refrigerator, lights, and other appliances can all be managed from a single point such as a mobile app or computer program. This makes it exceedingly convenient for users to manage their energy usage and incentivizes a more sustainable lifestyle.
 
 \section{Refutation} \label{refute}
 As mentioned in section \ref{intro}, machine learning and the IoT are relatively modern and untested technologies. As such, they are not without their flaws and it is expected that critics would be skeptical of their performance.\par
 
-Since the rise of the information era, privacy has been a large concern among internet users. A serious issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. There are two foreseeable solutions to this problem: the first is to make the control software open-source. Open-source software is software who's design is publicly available, meaning anyone can view and contribute to it \cite{opensource}. This way, customers and industry professionals can examine the code to ensure that the collected data is not being used in a malicious manner. The second solution is to not have the data sent to a cloud computing service in the first place. The data is contained within the building's infrastructure and all of the algorithms are processed in-house. No data is sent off site, thereby eliminating any privacy concerns.\par
+Since the rise of the information era, privacy has been a large concern among internet users. A serious issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. There are two foreseeable solutions to this problem: the first is to make the control software open-source. Open-source software is software whose design is publicly available, meaning anyone can view and contribute to it \cite{opensource}. This way, customers and industry professionals can examine the code to ensure that the collected data is not being used in a malicious manner. The second solution is to not have the data sent to a cloud computing service in the first place. The data is contained within the building's infrastructure and all of the algorithms are processed in-house. No data is sent off site, thereby eliminating any privacy concerns.\par
 
 Although the foundational technologies for smart systems have advanced significantly in recent years, there are still some areas that need work. The most difficult technical problem the IoT faces is the task of getting all of the devices in a local network to communicate with each other properly. Each device may be made by a different manufacturer and there is no universal software that seamlessly connects them all. A proposed solution to this problem by Vlacheas et al. \cite{vlacheas13} in their 2013 paper is a cognitive management framework which aims to assist in managing a network of devices. The framework works by representing real world objects with virtual objects in software. Virtual objects are assembled into larger, composite virtual objects (CVOs) and the CVOs are compiled into a working IoT network. This framework allows for a higher level of software abstraction, making it much easier for software developers to merge a network of devices into a cohesive, highly functional unit.
 
 \section{Conclusion} \label{conc}
 As we have seen, machine learning and the Internet of Things are extremely powerful technologies for improving the sustainability of homes and businesses. Although smart systems have not yet reached the mainstream market, they are already in use in many commercial and industrial applications, and it is looking as though they have a bright future ahead of them. As the foundational technologies for these systems improve and the solutions to their challenges are refined, smart systems will become an essential piece of technology as ubiquitous as the telephone.
 
+\vfill\hfill
+[1693 words]
+
 \clearpage
+\pagestyle{references}
 \printbibliography
 \end{document}
