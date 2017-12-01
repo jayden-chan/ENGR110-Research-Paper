@@ -1,7 +1,4 @@
 % Notes:
-% - Check that all quotes and mentions of authors are cited
-% - Page numbers in citations
-% - Conclusion needs more summary
 % - Don't throw uncontrollably
 
 \documentclass[letterpaper]{article}
@@ -12,8 +9,6 @@
 \usepackage[T1]{fontenc}
 \usepackage{etoolbox}
 \usepackage{setspace}
-
-\doublespacing
 
 \makeatletter
 \patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
@@ -34,14 +29,12 @@
 
 \addbibresource{references.bib}
 
-\pagestyle{fancy}
 \fancypagestyle{customPage}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
     \fancyhead[R]{\thepage}
     \fancyhead[C]{\scshape\small{Machine Learning, The Internet of Things, and Sustainable Design}}
 }
-\pagestyle{fancy}
 \fancypagestyle{references}{
     \fancyhf{}
     \renewcommand{\headrulewidth}{0pt}
@@ -65,6 +58,7 @@
 \end{titlepage}
 
 \pagestyle{customPage}
+\doublespacing
 
 \begin{center}
 \begin{minipage}{9.8cm}
@@ -87,7 +81,7 @@ Before discussing the viability of machine learning and the IoT, it is important
 \subsection{Machine Learning} \label{MLinfo}
 While the concept of artificial intelligence predates the common era \cite{mccorduck04}, the term ``machine learning'' was not coined until 1959 by Arthur Samuel \cite{samuel59}. The basic principle behind machine learning is to allow computers to complete tasks without being explicitly told how to. This technique enables machines to solve problems that are either too complicated for traditional algorithms to handle or lack a working traditional algorithm altogether.\par
 
-There are a variety of modern machine learning implementations in use today, each with their own strengths and weaknesses. The most useful flavor for the purposes of smart systems is an Artificial Neural Network (ANN), as it excels at pattern recognition and adaptability \cite{bishop06}. The specifics of ANNs are far beyond the scope of this paper, but they can be thought of as an algorithm which takes several inputs (data collected from IoT devices in this case), and produces one or more outputs (a plan to reduce energy usage in this case). The algorithm has a target (reduced energy usage in this case), and each time it produces an output it compares it to the target and attempts to improve itself in order to produce output closer to the target \cite{bonaccorso17}.
+There are a variety of modern machine learning implementations in use today, each with their own strengths and weaknesses. The most useful flavor for the purposes of smart systems is an Artificial Neural Network (ANN), as it excels at pattern recognition and adaptability \cite[p.~227-230]{bishop06}. The specifics of ANNs are far beyond the scope of this paper, but they can be thought of as an algorithm which takes several inputs (ie. data collected from IoT devices), and produces one or more outputs (ie. a plan to reduce energy usage). The algorithm has a target (ie. reduced energy usage), and each time it produces an output, it compares it to the target and attempts to improve itself in order to produce output closer to the target \cite[ch.~1]{bonaccorso17}.
 
 \subsection{The Internet of Things} \label{IoTinfo}
 The Internet of Things is a relatively modern conceptual technology which originated in the mid 1980's and 1990's with network-enabled appliances and smart devices \cite{weiser91}. Since then, many advancements have been made in the fields of embedded systems, microelectronics, and real-time analytics. While the IoT is still not a fully fledged technology ready for implementation in all scenarios, these advancements have increased its viability tremendously since the idea's inception.\par
@@ -95,18 +89,18 @@ The Internet of Things is a relatively modern conceptual technology which origin
 Similar to machine learning, the IoT comes in many different forms and interpretations. The concept of the IoT is to bring the internet to devices that would not normally have internet access. This can include objects like sensors, monitors, actuators, or even refrigerators, thermostats, lights, and other appliances \cite{wortmann15}. The implementations most useful for sustainable design are wireless sensor networks and automation networks \cite{atzori10}. These, in tandem with ANN optimization algorithms, can serve to aid greatly in the development of sustainable designs.
 
 \section{ML and the IoT for Sustainable Designs} \label{main}
-A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner, based on implementations by \textcite{pang15} and \textcite{risteska17}:
+A smart system is composed of three components: a wireless sensor network, an actuator network, and a machine learning algorithm. The primary task accomplished by a smart system in a home or business is to increase energy use efficiency by means of automation. This task is conducted in the following manner, based on implementations by \textcite[p.~315-317]{pang15} and \textcite[p.~1458-1460]{risteska17}:
 
 \begin{center}
 \begin{enumerate}
 \item
     The sensor and actuator networks are installed in the building. The greater the coverage of the network, the better the results.
 \item
-    Over time, information is collected by the sensor network. Again, the more data, the better the results. Typical metrics to measure are active occupancy hours, device usage patterns, energy usage rates, and transportation patterns (this extends beyond the building itself but useful in many respects).
+    Over time, information is collected by the sensor network. Again, the more data, the better the results. Typical metrics to measure are active occupancy hours, device usage patterns, energy usage rates, and transportation patterns (this extends beyond the building itself but is useful in many respects).
 \item
     The data is anonymously sent to a cloud computing service where it is fed into an Artificial Neural Network designed to reduce energy usage. The algorithm outputs an `optimization plan', which is a series of automated tasks that the actuator network can perform in order to reduce energy usage. If an optimization plan already exists, the results are analyzed for consistency with the target values. The algorithm will attempt to modify itself to closer emulate the target values based on this data.
 \item
-    The optimization plan is sent back to the building where the actuator network applies it on a daily basis. An actuator network is a set of hardware controllers capable of manipulating their surroundings. The optimization plan can include actions such as reducing the climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
+    The optimization plan is sent back to the building where the actuator network applies it on a daily basis. An actuator network is a set of hardware controllers capable of manipulating their surroundings. The optimization plan can include actions such as turning off climate control in unused rooms, automatically turning off lights when they are unused, or load-balancing a multi-appliance set to ensure they are all operating at peak efficiency.
 \item
     Steps 2-4 are repeated in a continuous cycle. The ML algorithm improves with more data, and a setup which constantly supplies it with new data allows it to adapt to lifestyle changes of home or business owners.
 \end{enumerate}
@@ -119,16 +113,16 @@ Building further on the concept of interconnectedness, the nature of this framew
 \section{Refutation} \label{refute}
 As mentioned in section \ref{intro}, machine learning and the IoT are relatively modern and untested technologies. As such, they are not without their flaws and it is expected that critics would be skeptical of their performance.\par
 
-\subsection{Privacy}
+\subsection{Privacy} \label{privacy}
 Privacy has been a major concern among internet users since the rise of the information era. A serious issue raised by the general public and industry professionals is the moral and ethical implications of collecting such specific information about the homes and workplaces of customers \cite{perisic16, mccalman17}. There are two foreseeable solutions to this problem: the first is to make the control software open-source. Open-source software has a publicly available design, meaning anyone can view and contribute to it \cite{opensource}. This way, customers and industry professionals can examine the code to ensure that the collected data is not being used in a malicious manner. The second solution is to not send the data to a cloud computing service in the first place. It is contained within the building's infrastructure and all of the algorithms are processed in-house. No data is sent off site, thereby eliminating any privacy concerns.\par
 
-\subsection{Technical Challenges}
-Although the foundational technologies for smart systems have advanced significantly in recent years, there are still areas that need work. The most difficult technical problem the IoT faces is the task of getting all of the devices in a local network to communicate with each other properly. Each device may be made by a different manufacturer and there is no universal software that seamlessly connects them all. A solution proposed by Vlacheas et al. \cite{vlacheas13} in their 2013 paper is a cognitive management framework that aims to assist in managing a network of devices. The framework works by representing real world objects with virtual objects in software. Virtual objects are assembled into larger, composite virtual objects (CVOs) and the CVOs are compiled into a working IoT network \cite{vlacheas13}. This framework allows for a higher level of software abstraction, making it much easier for software developers to merge a network of devices into a single cohesive and highly functional unit.
+\subsection{Technical Challenges} \label{tech}
+Although the foundational technologies for smart systems have advanced significantly in recent years, there are still areas that need work. The most difficult technical problem the IoT faces is the task of getting all of the devices in a local network to communicate with each other properly. Each device may be made by a different manufacturer and there is no universal software that seamlessly connects them all. A solution proposed by Vlacheas et al. in their 2013 paper \cite[p.~103]{vlacheas13} is a cognitive management framework that aims to assist in operating a network of devices. The framework works by representing real world objects with virtual objects in software. Virtual objects are assembled into larger, composite virtual objects (CVOs) and the CVOs are compiled into a working IoT network \cite[p.~103]{vlacheas13}. This framework allows for a higher level of software abstraction, making it much easier for software developers to merge a network of devices into a single, cohesive and highly functional unit.
 
 \section{Conclusion} \label{conc}
-As we have seen, machine learning and the Internet of Things are extremely powerful technologies for improving the sustainability of homes and businesses. Although smart systems have not yet reached the mainstream market, they are already in use in many commercial and industrial applications, and it is looking as though they have a bright future ahead of them. As the foundational technologies for these systems improve and the solutions to their challenges are refined, smart systems will become an essential piece of technology as ubiquitous as the telephone.
+As we have seen, machine learning and the Internet of Things are extremely powerful technologies for improving the sustainability of homes and businesses. The integration of smart system technologies into homes and businesses will allow customers to use energy as efficiently as possible, thereby increasing sustainability. Automated smart systems will also serve to incentivize an attitude that promotes healthy living and sustainability by making energy management a breeze for anyone. Although smart systems have not yet reached the mainstream market, they are already in use in many commercial and industrial applications, and it is looking as though they have a bright future ahead of them. As described in section \ref{privacy}, any privacy-related issues are trivial to solve, and as the solutions to technical challenges are refined, smart systems will become an essential piece of technology as ubiquitous as the telephone.
 
-\vfill\hfill
+\vspace{2cm}\hfill
 [1693 words]
 
 \clearpage
